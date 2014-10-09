@@ -4,7 +4,7 @@
 %define debug_package %{nil}
 
 Name: milou
-Version: 5.0.1
+Version: 5.0.95
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/plasma/%{version}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
@@ -64,12 +64,14 @@ ninja -C build
 %install
 DESTDIR="%{buildroot}" ninja -C build install %{?_smp_mflags}
 %find_lang milou
+%find_lang plasma_applet_org.kde.milou
 
-%files -f milou.lang
+%files -f milou.lang,plasma_applet_org.kde.milou.lang
 %{_libdir}/qml/org/kde/milou
 %{_datadir}/kservicetypes5/*
 %{_datadir}/kservices5/*
 %{_datadir}/plasma/plasmoids/org.kde.milou
+%{_libdir}/plugins/miloutextplugin.so
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
