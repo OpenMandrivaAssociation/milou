@@ -2,11 +2,12 @@
 %define libname %mklibname milou %{major}
 %define devname %mklibname milou -d
 %define debug_package %{nil}
+%define plasmaver %(echo %{version} |cut -d. -f1-3)
 
 Name: milou
-Version: 5.0.95
+Version: 5.1.0.1
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/plasma/%{version}/%{name}-%{version}.tar.xz
+Source0: http://ftp5.gwdg.de/pub/linux/kde/stable/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
 URL: http://kde.org/
 License: GPL
@@ -55,7 +56,7 @@ Requires: %{libname} = %{EVRD}
 Development files for the KDE Frameworks 5 Milou search library
 
 %prep
-%setup -q
+%setup -qn %{name}-%{plasmaver}
 %cmake -G Ninja
 
 %build
@@ -75,4 +76,4 @@ DESTDIR="%{buildroot}" ninja -C build install %{?_smp_mflags}
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
-%{_libdir}/*.so.%{version}
+%{_libdir}/*.so.%{plasmaver}
