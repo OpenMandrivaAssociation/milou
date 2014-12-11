@@ -58,7 +58,8 @@ Development files for the KDE Frameworks 5 Milou search library
 
 %prep
 %setup -qn %{name}-%{plasmaver}
-%cmake -G Ninja
+%cmake -G Ninja \
+	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
 
 %build
 ninja -C build
@@ -69,11 +70,11 @@ DESTDIR="%{buildroot}" ninja -C build install %{?_smp_mflags}
 %find_lang plasma_applet_org.kde.milou
 
 %files -f milou.lang,plasma_applet_org.kde.milou.lang
-%{_libdir}/qml/org/kde/milou
+%{_libdir}/qt5/qml/org/kde/milou
 %{_datadir}/kservicetypes5/*
 %{_datadir}/kservices5/*
 %{_datadir}/plasma/plasmoids/org.kde.milou
-%{_libdir}/plugins/miloutextplugin.so
+%{_libdir}/qt5/plugins/miloutextplugin.so
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
