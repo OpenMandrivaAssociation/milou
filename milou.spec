@@ -6,7 +6,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: milou
-Version: 5.2.1
+Version: 5.2.2
 Release: 1
 Source0: http://ftp5.gwdg.de/pub/linux/kde/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
@@ -17,18 +17,18 @@ BuildRequires: cmake
 BuildRequires: qmake5
 BuildRequires: extra-cmake-modules5
 BuildRequires: pkgconfig(Qt5Core)
+BuildRequires: pkgconfig(Qt5Gui)
+BuildRequires: pkgconfig(Qt5Network)
+BuildRequires: pkgconfig(Qt5Qml)
+BuildRequires: pkgconfig(Qt5Quick)
+BuildRequires: pkgconfig(Qt5Script)
+BuildRequires: pkgconfig(Qt5Test)
+BuildRequires: pkgconfig(Qt5Widgets)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(Gettext)
 BuildRequires: cmake(ECM)
-BuildRequires: cmake(Qt5)
 BuildRequires: cmake(KF5)
 BuildRequires: cmake(KdepimLibs)
-BuildRequires: cmake(Qt5Script)
-BuildRequires: cmake(Qt5Network)
-BuildRequires: cmake(Qt5Qml)
-BuildRequires: cmake(Qt5Gui)
-BuildRequires: cmake(Qt5Widgets)
-BuildRequires: cmake(Qt5Test)
 BuildRequires: cmake(KF5Runner)
 BuildRequires: cmake(KF5Plasma)
 BuildRequires: cmake(Gettext)
@@ -38,7 +38,7 @@ BuildRequires: ninja
 Requires: %{libname} = %{EVRD}
 
 %description
-A search client for Baloo
+A search client for Baloo.
 
 %package -n %{libname}
 Summary: KDE Frameworks 5 Milou search framework
@@ -46,7 +46,7 @@ Group: System/Libraries
 Requires: %{name} = %{EVRD}
 
 %description -n %{libname}
-KDE Frameworks 5 Milou search framework
+KDE Frameworks 5 Milou search framework.
 
 %package -n %{devname}
 Summary: Development files for the KDE Frameworks 5 Milou search library
@@ -54,7 +54,7 @@ Group: Development/KDE and Qt
 Requires: %{libname} = %{EVRD}
 
 %description -n %{devname}
-Development files for the KDE Frameworks 5 Milou search library
+Development files for the KDE Frameworks 5 Milou search library.
 
 %prep
 %setup -qn %{name}-%{plasmaver}
