@@ -8,14 +8,11 @@
 Name: milou
 Version: 5.3.2
 Release: 1
-Source0: http://ftp5.gwdg.de/pub/linux/kde/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
+Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
 URL: http://kde.org/
 License: GPL
 Group: System/Libraries
-BuildRequires: cmake
-BuildRequires: qmake5
-BuildRequires: extra-cmake-modules5
 BuildRequires: pkgconfig(Qt5Core)
 BuildRequires: pkgconfig(Qt5Gui)
 BuildRequires: pkgconfig(Qt5Network)
@@ -31,10 +28,8 @@ BuildRequires: cmake(KF5)
 BuildRequires: cmake(KdepimLibs)
 BuildRequires: cmake(KF5Runner)
 BuildRequires: cmake(KF5Plasma)
-BuildRequires: cmake(Gettext)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Declarative)
-BuildRequires: ninja
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -58,14 +53,14 @@ Development files for the KDE Frameworks 5 Milou search library.
 
 %prep
 %setup -qn %{name}-%{plasmaver}
-%cmake -G Ninja \
-	-DKDE_INSTALL_USE_QT_SYS_PATHS:BOOL=ON
+%cmake_kde5
 
 %build
-ninja -C build
+%ninja -C build
 
 %install
-DESTDIR="%{buildroot}" ninja -C build install %{?_smp_mflags}
+%ninja_install -C build
+
 %find_lang milou
 %find_lang plasma_applet_org.kde.milou
 
