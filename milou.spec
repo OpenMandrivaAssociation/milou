@@ -70,6 +70,7 @@ Development files for the KDE Frameworks 5 Milou search library.
 %{_datadir}/kservices5/*
 %{_datadir}/plasma/plasmoids/org.kde.milou
 %{_libdir}/qt5/plugins/miloutextplugin.so
+%{_datadir}/metainfo/org.kde.milou.appdata.xml
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
