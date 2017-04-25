@@ -6,10 +6,9 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: milou
-Version: 5.9.4
+Version: 5.9.5
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
-Patch0: milou-5.9.4-qt-5.9alpha-qtest-workaround.patch
 Summary: A search client for Baloo
 URL: http://kde.org/
 License: GPL
