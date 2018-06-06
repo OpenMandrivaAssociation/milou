@@ -6,7 +6,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: milou
-Version: 5.12.3
+Version: 5.12.90
 Release: 1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
@@ -21,15 +21,16 @@ BuildRequires: pkgconfig(Qt5Quick)
 BuildRequires: pkgconfig(Qt5Script)
 BuildRequires: pkgconfig(Qt5Test)
 BuildRequires: pkgconfig(Qt5Widgets)
+BuildRequires: cmake(KF5CoreAddons)
 BuildRequires: cmake(KF5DocTools)
 BuildRequires: cmake(Gettext)
 BuildRequires: cmake(ECM)
 BuildRequires: cmake(KF5)
-BuildRequires: cmake(KdepimLibs)
 BuildRequires: cmake(KF5Runner)
 BuildRequires: cmake(KF5Plasma)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Declarative)
+BuildRequires: cmake(KF5Service)
 Requires: %{libname} = %{EVRD}
 
 %description
@@ -65,7 +66,7 @@ Development files for the KDE Frameworks 5 Milou search library.
 %find_lang milou
 %find_lang plasma_applet_org.kde.milou
 
-%files -f milou.lang,plasma_applet_org.kde.milou.lang
+%files -f milou.lang -f plasma_applet_org.kde.milou.lang
 %{_libdir}/qt5/qml/org/kde/milou
 %{_datadir}/kservicetypes5/*
 %{_datadir}/kservices5/*
