@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   milou-5.12.3.tar.xz: eae85ecf96739d1246c37a6fd43c2ec5c601394a
+sources:
+  milou-5.12.6.tar.xz: add5d319d51c12101c37c4167909990f58a203b9
