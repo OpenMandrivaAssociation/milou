@@ -31,6 +31,7 @@ BuildRequires: cmake(KF5Plasma)
 BuildRequires: cmake(KF5I18n)
 BuildRequires: cmake(KF5Declarative)
 BuildRequires: cmake(KF5Service)
+BuildRequires: cmake(KF5ItemModels)
 Requires: %{libname} = %{EVRD}
 
 %description
