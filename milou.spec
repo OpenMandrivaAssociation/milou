@@ -6,8 +6,8 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: milou
-Version:	5.18.3
-Release:	2
+Version:	5.18.4.1
+Release:	1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
 URL: http://kde.org/
@@ -54,7 +54,7 @@ Requires: %{libname} = %{EVRD}
 Development files for the KDE Frameworks 5 Milou search library.
 
 %prep
-%autosetup -p1 -n %{name}-%{plasmaver}
+%autosetup -p1
 %cmake_kde5
 
 %build
