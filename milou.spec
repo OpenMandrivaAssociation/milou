@@ -7,7 +7,7 @@
 
 Name: milou
 Version:	5.20.4
-Release:	1
+Release:	2
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
 URL: http://kde.org/
