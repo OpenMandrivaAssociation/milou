@@ -5,7 +5,7 @@
 %define stable %([ "`echo %{version} |cut -d. -f3`" -ge 80 ] && echo -n un; echo -n stable)
 
 Name: milou
-Version:	5.23.4
+Version:	5.23.5
 Release:	1
 Source0: http://download.kde.org/%{stable}/plasma/%{plasmaver}/%{name}-%{version}.tar.xz
 Summary: A search client for Baloo
@@ -69,6 +69,7 @@ Development files for the KDE Frameworks 5 Milou search library.
 %{_libdir}/qt5/qml/org/kde/milou
 %{_datadir}/plasma/plasmoids/org.kde.milou
 %{_datadir}/metainfo/org.kde.milou.appdata.xml
+%{_datadir}/kservices5/plasma-applet-org.kde.milou.desktop
 
 %files -n %{libname}
 %{_libdir}/*.so.%{major}
