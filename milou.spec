@@ -7,7 +7,7 @@
 %define gitbranchd %(echo %{gitbranch} |sed -e "s,/,-,g")
 
 Name: milou
-Version:	6.4.5
+Version:	6.5.0
 Release:	%{?git:0.%{git}.}1
 %if 0%{?git:1}
 Source0:	https://invent.kde.org/plasma/milou/-/archive/%{gitbranch}/milou-%{gitbranchd}.tar.bz2#/milou-%{git}.tar.bz2
@@ -60,4 +60,3 @@ Development files for the KDE Frameworks 5 Milou search library.
 %files -f %{name}.lang
 %{_qtdir}/qml/org/kde/milou
 %{_datadir}/plasma/plasmoids/org.kde.milou
-%{_datadir}/metainfo/org.kde.milou.appdata.xml
